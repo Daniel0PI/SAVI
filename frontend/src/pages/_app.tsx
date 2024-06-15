@@ -1,6 +1,4 @@
 import type { AppProps } from "next/app";
-
-
 import "tailwindcss/tailwind.css";
 
 import { Client, InternetIdentity } from "@bundly/ares-core";
