@@ -2,21 +2,36 @@
 import React, { useEffect, useRef } from 'react';
 import L from 'leaflet';
 
-const MapComponent: React.FC = () => {
+type Sitio = {
+  nombre: string;
+  latitud: number;
+  longitud: number;
+  descripcion: string;
+};
+
+interface MapComponentProps {
+  sitios: [number, Sitio][];
+}
+
+const MapComponent: React.FC<MapComponentProps> = ({ sitios }) => {
   const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Verificar que estamos en el entorno del navegador antes de crear el mapa
     if (typeof window !== 'undefined' && mapRef.current) {
-      // Crear mapa
       const map = L.map(mapRef.current).setView([17.06637811236944, -96.72308597720262], 13);
 
-      // Añadir capa de mapa base
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'Map data © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
+
+      sitios.forEach(([id, sitio]) => {
+        'uhaa'
+        L.marker([sitio.latitud, sitio.longitud])
+          .addTo(map)
+          .bindPopup(`<b>${sitio.nombre}</b><br>${sitio.descripcion}`);
+      });
     }
-  }, []);
+  }, [sitios]);
 
   return <div ref={mapRef} style={{ height: '100%' }} />;
 };
