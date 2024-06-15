@@ -58,9 +58,9 @@ Your .env file should look something like this:
 # Replace port if needed
 NEXT_PUBLIC_IC_HOST_URL=http://localhost:4943
 # Replace YOUR_TEST_CANISTER_ID with your test canister id
-NEXT_PUBLIC_TEST_CANISTER_ID=http://YOUR_TEST_CANISTER_ID.localshot:4943
+NEXT_PUBLIC_TEST_CANISTER_ID=http://YOUR_TEST_CANISTER_ID.localhost:4943
 # Replace YOUR_INTERNET_IDENTITY_CANISTER_ID with your internet-identity canister id
-NEXT_PUBLIC_INTERNET_IDENTITY_URL=http://YOUR_INTERNET_IDENTITY_CANISTER_ID.localshot:4943
+NEXT_PUBLIC_INTERNET_IDENTITY_URL=http://YOUR_INTERNET_IDENTITY_CANISTER_ID.localhost:4943
 ```
 
 Generate did files:
