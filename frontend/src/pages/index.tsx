@@ -79,6 +79,17 @@ const Mapa: React.FC = () => {
   return (
     <>
       <Header />
+      <div style={{ padding: '20px' }}>
+        <h2 style={{ fontSize: '3em', fontFamily: 'Arial, sans-serif' }}>¿Quiénes somos?</h2>
+        <div style={{ display: 'flex' }}>
+          <img src="/IMAGES/LOGO.png" alt="Imagen de ¿Quiénes somos?" style={{ width: '30%', height: 'auto' }} />
+          <p style={{ width: '70%', paddingLeft: '20px', fontSize: '1.7em', textAlign: 'center' }}>SAVI es tu guía personalizada para explorar Oaxaca de manera auténtica y enriquecedora. Ofrecemos una variedad de experiencias adaptadas a tus intereses en arqueología e historia, naturaleza y ecoturismo, gastronomía y cultura, artesanías y compras, y turismo de aventura.
+
+Accede a información detallada sobre creadores locales y anfitriones, y sumérgete en nuestra plataforma de realidad virtual con reseñas históricas y datos fascinantes. Nuestra inteligencia artificial diseña itinerarios personalizados para ti, y puedes participar en una comunidad de viajeros para compartir tus vivencias.
+
+Simplificamos tus transacciones con pagos en bitcoins, eliminando las complicaciones del cambio de moneda, todo respaldado por tecnología Web 3.0 y Blockchain para garantizar seguridad y eficiencia.</p>
+        </div>
+      </div>
       <div style={{ textAlign: 'center', marginTop: '20px' }}>
         <Link href="/create-site" passHref>
           <CreateButton onClick={handleCreateSitio}>Crear Nuevo Sitio</CreateButton>

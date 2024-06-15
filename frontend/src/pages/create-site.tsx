@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Header from '../components/header'; 
+
 import styled from 'styled-components';
 
 type Sitio = {
@@ -12,7 +13,7 @@ type Sitio = {
 };
 
 const Container = styled.div`
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   background: #f9f9f9;
@@ -97,8 +98,7 @@ const CreateSite: React.FC = () => {
   useEffect(() => {
     async function fetchSitios() {
       try {
-        // Llamar al método readAllSitios del backend y obtener la lista de sitios
-        const response = await fetch('/api/read-all-sitios'); // Cambia la ruta según tu implementación
+        const response = await fetch('/api/read-all-sitios');
         const data = await response.json();
         setSitios(data);
       } catch (error) {
@@ -107,28 +107,19 @@ const CreateSite: React.FC = () => {
     }
 
     fetchSitios();
-  }, []); // Ejecutar solo al montar el componente
+  }, []);
 
   const createSitio = async () => {
     try {
       setLoading(true);
-      // Aquí deberías hacer la llamada a tu API o servicio para crear el sitio
       console.log('Creating site', { name, latitude, longitude, description });
-      // Ejemplo de llamada a API
-      // await api.createSitio({ name, latitude, longitude, description });
       alert('Sitio creado exitosamente');
 
-      // Actualizar la lista de sitios sin recargar la página
       setSitios([...sitios, [sitios.length + 1, { nombre: name, latitud: +latitude, longitud: +longitude, descripcion: description }]]);
-
-      // Limpiar los campos después de crear el sitio
       setName('');
       setLatitude('');
       setLongitude('');
       setDescription('');
-
-      // Redirigir a la página principal
-      router.push('/');
     } catch (error) {
       console.error('Error creating site:', error);
     } finally {
@@ -143,7 +134,7 @@ const CreateSite: React.FC = () => {
 
   return (
     <Container>
-      <Header /> {/* Usa tu componente Header */}
+      <Header />
       <Title>Agregar un nuevo sitio</Title>
       <Form onSubmit={handleSubmit}>
         <FormField>
@@ -201,6 +192,7 @@ const CreateSite: React.FC = () => {
           </SiteItem>
         ))}
       </SiteList>
+      
     </Container>
   );
 };
